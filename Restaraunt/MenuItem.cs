@@ -8,11 +8,19 @@ namespace Restaraunt
 {
     class MenuItem
     {
-        private string name { get; }
+        //TODO this is incorrect as setting it up this way doesn't allow you to access these variables when you create instances of them
+        /** private string name { get; }
         private string descr { get; }
         private double price { get; set; }
         private DateTime date = DateTime.Now;
+        private string cat; **/
+
+        private readonly string name;
+        private readonly string descr;
+        private double price;
         private string cat;
+
+        private DateTime date = DateTime.Now;
 
         public MenuItem(string name, string descr, double price, string cat)
         {
@@ -20,7 +28,32 @@ namespace Restaraunt
             this.descr = descr;
             this.price = price;
             this.cat = cat;
-        } 
+        }
+
+        public string GetName()
+        {
+            return name;
+        }
+
+        public string GetDescr()
+        {
+            return descr;
+        }
+
+        public double GetPrice()
+        {
+            return price;
+        }
+
+        public void SetPrice(double value)
+        {
+            price = value;
+        }
+
+        public  string GetCat ()
+        {
+            return this.cat;
+        }
 
         public string ToString()
         {
